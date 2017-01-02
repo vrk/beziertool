@@ -1,0 +1,36 @@
+blockquote {
+  font-style: italic;
+}
+
+body {
+  font-family: Helvetica, Arial, sans-serif;
+  font-size: 11pt;
+}
+
+.byline {
+  text-align: right;
+}
+
+canvas {
+  border: 3px solid black;
+}
+
+#container {
+  margin-left: auto;
+  margin-right: auto;
+  max-width: 1024px;
+}
+
+div.col {
+  float: left;
+  margin: 25px;
+}
+
+fieldset {
+  clear: both;
+}
+
+textarea {
+  height: 500px;
+  width: 300px;
+}

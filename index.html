@@ -30,14 +30,17 @@
       <label><input type="radio" name="mode" id="addMode" checked/>add points</label>
       <label><input type="radio" name="mode" id="selectMode" />move points</label>
       <label><input type="radio" name="mode" id="removeMode" />remove points</label><br />
+      <label><input type="radio" name="language" id="JavaScript" checked/>JavaScript</label>
+      <label><input type="radio" name="language" id="Processing" />Processing 3</label>
+      <br>
       <label><input type="checkbox" name="lockControl" id="lockControl" checked/>lock adjacent control points</label>
       <button id="clear" type="button">Clear all points</button><br/>
     </fieldset>
     <div class="col">
-      <canvas id="paintme" width="600" height="500"></canvas>
+      <canvas id="paintme" width="600" height="600"></canvas>
     </div>
     <div class="col">
-      <textarea id="putJS"></textarea>
+      <textarea id="putCode"></textarea>
     </div>
     <fieldset>
       <legend>Trace Path Over Image</legend>

@@ -30,7 +30,7 @@ fieldset {
   clear: both;
 }
 
-textarea {
-  height: 500px;
-  width: 300px;
+#putCode {
+  height: 300px;
+  width: 800px;
 }

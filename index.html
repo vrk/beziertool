@@ -2,9 +2,9 @@
 <html lang="en">
 <head>
 	<meta charset="utf-8" />
-	<title>HTML5 Canvas bezierCurveTo generator</title>
+	<title>HTML5 Canvas bezierCurve generator</title>
   <meta name="description"
-  content="A tool to live-generate bezierCurveTo commands on canvas, by drawing on a canvas" />
+  content="A tool to live-generate bezierCurve commands on canvas, by drawing on a canvas" />
   <meta name="keywords"
   content="html5, html, javascript, canvas, bezierCurveTo, bezier, tool, path, draw, drawing, generator, creator, auto-generate, generate, canvas2d" />
 	<link rel="stylesheet" type="text/css" href="style.css" />
@@ -13,23 +13,21 @@
 
 <body>
   <div id="container">
-    <h1>HTML5 <code>&lt;canvas&gt; bezierCurveTo</code> command generator</h1>
-    <blockquote>
-      <p>Using quadratic and cubic Bezier curves can be quite challenging, because unlike vector drawing software like Adobe Illustrator, <strong>we don't have direct visual feedback as to what we're doing</strong>. This makes it pretty hard to draw complex shapes. ... [I]f you have the time and, <strong>most of all, the patience</strong>, much more complex shapes can be created.<br/>
-      <div class="byline"> -- "Bezier and quadratic curves," <a href="https://developer.mozilla.org/en/Canvas_tutorial/Drawing_shapes#Bezier_and_quadratic_curves">MDN doc center</a></div>
-      </p>
-    </blockquote>
-    <p>Translation: Someone will write a tool for this later</p>
-    <p>And here is mine! This is a tool to generate calls to <code>toBezierTool</code> via a bezier path drawing GUI.</p>
+    <h1>HTML5 <code>&lt;canvas&gt; bezierCurve</code> command generator</h1>
+    
     <p>
-      <strong>Intended For:</strong> People who already know JavaScript/canvas and want to draw a simple non-standard shape, but don't want to fiddle with pixel values.<br/>
+      <strong>Intended For:</strong> People who already know JavaScript/Proccessing and want to draw curves without trying every possible Pixel Value.<br/>
       <strong>Not Intended For:</strong> Auto-generating code for those who don't know what they're doing; replacing a full-fledged awesome drawing program like Illustrator.
     </p>
+	<p>
+		This tool was originally created by Victoria Kirst in 2011 and I started working on it Dezember 2019.
+	<p>
     <fieldset>
       <legend>Path Edit Modes</legend>
       <label><input type="radio" name="mode" id="addMode" checked/>add points</label>
       <label><input type="radio" name="mode" id="selectMode" />move points</label>
-      <label><input type="radio" name="mode" id="removeMode" />remove points</label><br />
+      <label><input type="radio" name="mode" id="removeMode" />remove points</label>
+	  <br/>
       <label><input type="radio" name="language" id="JavaScript" checked/>JavaScript</label>
       <label><input type="radio" name="language" id="Processing" />Processing 3</label>
       <br>
@@ -37,7 +35,7 @@
       <button id="clear" type="button">Clear all points</button><br/>
     </fieldset>
     <div class="col">
-      <canvas id="paintme" width="600" height="600"></canvas>
+      <canvas id="paintme" width="800" height="800"></canvas>
     </div>
     <div class="col">
       <textarea id="putCode"></textarea>
@@ -48,17 +46,11 @@
     </fieldset>
     <p>Someday I might:</p>
     <ul>
-      <li>Make an ACTUALLY useful app/library*</li>
-      <li>Allow multiple paths</li>
       <li>Move paths</li>
       <li>Rotate paths</li>
-      <li>Convert points btwn poiny and non</li>
-      <li>Add Illustrator hotkeys</li>
       <li>Add point to segment</li>
-      <li>Clean up code</li>
+      <li>Clean up code(Not my code... My Code is super clean)</li>
     </ul>
-    <p>If you'd like to do these things for me, <a href="script.js">have at</a>!</p>
-    <p>(*This app would be way more useful if I exposed features to make the vector art "living" instead of a static dead picture. So what I really should be doing is generating code for a JS object + provide a library that can transform it in interesting ways. I have the bulk of this code in my JS file, just need to expose it prettily!)</p>
   </div>
 </body>
 </html>

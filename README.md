@@ -1,4 +1,3 @@
-# HTML5 <canvas> bezierCurveTo command generator
 # HTML5 bezierCurve Command Generator
 
 <<<<<<< Updated upstream

@@ -14,7 +14,7 @@
 <body>
   <div id="container">
     <h1>HTML5 <code>&lt;canvas&gt; bezierCurve</code> command generator</h1>
-    
+
     <p>
       <strong>Intended For:</strong> People who already know JavaScript/Proccessing and want to draw curves without trying every possible Pixel Value.<br/>
       <strong>Not Intended For:</strong> Auto-generating code for those who don't know what they're doing; replacing a full-fledged awesome drawing program like Illustrator.
@@ -27,16 +27,21 @@
       <label><input type="radio" name="mode" id="addMode" checked/>add points</label>
       <label><input type="radio" name="mode" id="selectMode" />move points</label>
       <label><input type="radio" name="mode" id="removeMode" />remove points</label>
-	  <br/>
-      <label><input type="radio" name="language" id="JavaScript" checked/>JavaScript</label>
-      <label><input type="radio" name="language" id="Processing" />Processing 3</label>
+
       <br>
+			<input type="number" placeholder="x Value" id="moveX" name="moveX"> <input type="number" placeholder="y Value" id="moveY" name="moveY"> <button id="move" type="button">Move all points</button><br>
+			<input type="number" placeholder="Rotate Degrees" id="rotateD" name="rotateD"> <button id="rotate" type="button">Rotate all points</button><br>
+			<br>
       <label><input type="checkbox" name="lockControl" id="lockControl" checked/>lock adjacent control points</label>
       <button id="clear" type="button">Clear all points</button><br/>
     </fieldset>
     <div class="col">
       <canvas id="paintme" width="800" height="800"></canvas>
     </div>
+		<fieldset>
+      <label><input type="radio" name="language" id="JavaScript" checked/>JavaScript</label>
+      <label><input type="radio" name="language" id="Processing" />Processing 3</label>
+		</fieldset>
     <div class="col">
       <textarea id="putCode"></textarea>
     </div>

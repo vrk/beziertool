@@ -34,7 +34,7 @@ var Mode = {
 	kRemoving : {
 		value : 3,
 		name : "Removing"
-	},
+	}
 };
 
 var Language = {
@@ -126,6 +126,20 @@ window.onload = function() {
 			gCtx.clearRect(0, 0, WIDTH, HEIGHT);
 		}
 
+	}, false);
+
+	var moveButton = document.getElementById('move');
+	moveButton.addEventListener('click', function() {
+		if (gBezierPath != null) {
+			gBezierPath.moveAllPoints(document.getElementById("moveX").value, document.getElementById("moveY").value);
+		}
+	}, false);
+
+	var rotateButton = document.getElementById('rotate');
+	rotateButton.addEventListener('click', function() {
+		if (gBezierPath != null) {
+			gBezierPath.rotateAllPoints(document.getElementById("rotateD").value);
+		}
 	}, false);
 
 	var setSrcButton = document.getElementById('addImgSrc');
@@ -311,6 +325,10 @@ function ControlPoint(angle, magnitude, owner, isFirst) {
 			_angle = deg;
 	}
 
+	this.angle = function() {
+		return _angle;
+	}
+
 	this.origin = function origin() {
 		var line = null;
 		if (_isFirst)
@@ -433,6 +451,26 @@ function LineSegment(pt, prev) {
 		// If there are at least two points, draw curve.
 		if (my.prev)
 			drawCurve(ctx, my.prev.pt, my.pt, my.ctrlPt1, my.ctrlPt2);
+	}
+
+	this.movePoints = function(x,y) {
+		var newX = my.pt.x() + x;
+		var newY = my.pt.y() + y;
+		my.pt.set(newX, newY);
+	}
+
+	this.rotatePoints = function(degree,centerX,centerY) {
+		var rad = degree * Math.PI /180;
+
+		var newX = centerX + Math.cos(rad) * (my.pt.x()-centerX) - Math.sin(rad) * (my.pt.y() -centerY);
+		var newY = centerY + Math.sin(rad) * (my.pt.x()-centerX) + Math.cos(rad) * (my.pt.y() -centerY);
+		my.pt.set(newX, newY);
+		if (my.ctrlPt1) {
+			my.ctrlPt1.setAngle(my.ctrlPt1.angle() + rad);
+		}
+		if (my.ctrlPt2) {
+			my.ctrlPt2.setAngle(my.ctrlPt2.angle() + rad);
+		}
 	}
 
 	this.toJSString = function() {
@@ -649,6 +687,29 @@ function BezierPath(startPoint) {
 	this.updateSelected = function(pos) {
 		selectedSegment.moveTo(pos);
 	}
+
+this.moveAllPoints = function(moveX, moveY) {
+	var current = my.head;
+	while (current != null) {
+		current.movePoints(parseInt(moveX),parseInt(moveY));
+		current = current.next;
+	}
+	render();
+}
+
+this.rotateAllPoints = function(degree) {
+	var centerX = gCanvas.width/2;
+	var centerY = gCanvas.height/2;
+	console.log("test");
+	current = my.head;
+	while(current != null) {
+		current.rotatePoints(parseInt(degree), centerX, centerY);
+		current = current.next;
+	}
+	console.log("test");
+	render();
+}
+
 	this.toCodeString = function() {
 		switch (gLanguage) {
 		case Language.JavaScript:
